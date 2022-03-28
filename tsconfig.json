@@ -1,0 +1,14 @@
+{
+  "include": ["src/**/*.ts", "src/*.ts"],
+  "output": "./dist/",
+  "paths": {
+    "src/*": ["src/*", "src/*/*"]
+  },
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "useUnknownInCatchVariables": false
+  }
+}
