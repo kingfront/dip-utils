@@ -8,16 +8,16 @@
  * @returns
  */
 var slash = function (p) {
-    return p.replace(/\\/g, '/');
-};
+  return p.replace(/\\/g, '/')
+}
 /**
  *
  * @param p
  * @returns
  */
 var random = function (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
 /**
  * 常用日期工具函数
@@ -29,7 +29,7 @@ var random = function (min, max) {
  * @returns 时间戳
  */
 var getTimestamp = function (dateStr) {
-    return Date.parse(new Date(dateStr).toString());
-};
+  return Date.parse(new Date(dateStr).toString())
+}
 
-export { getTimestamp, random, slash };
+export { getTimestamp, random, slash }

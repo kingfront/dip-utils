@@ -7,18 +7,18 @@ export default {
     {
       format: 'cjs', // 打包格式
       file: 'dist/dip-utils.cjs.js', // 打包后的文件路径名称
-      name: 'dutils', // 打包后的默认导出文件名称
+      name: 'dutils' // 打包后的默认导出文件名称
     },
     {
       format: 'esm',
       file: 'dist/dip-utils.esm.js',
-      name: 'dutils',
+      name: 'dutils'
     },
     {
       format: 'umd',
       file: 'dist/dip-utils.umd.js',
-      name: 'dutils',
-    },
+      name: 'dutils'
+    }
   ],
-  plugins: [typescript({ tsconfig: './tsconfig.json' }), resolve()],
+  plugins: [typescript({ tsconfig: './tsconfig.json' }), resolve()]
 }
