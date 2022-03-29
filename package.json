@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --no-cache "
+    "test": "jest"
   },
   "keywords": [
     "utils",
