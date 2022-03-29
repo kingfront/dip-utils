@@ -8,7 +8,7 @@
  * 注意：此处月、日、时分秒、必须为2位数字，否则报错
  * @returns 时间戳
  */
-export const getTimestamp = (dateStr: string): number => {
+export function getTimestamp(dateStr: string): number {
   return Date.parse(new Date(dateStr).toString())
 }
 
@@ -17,7 +17,7 @@ export const getTimestamp = (dateStr: string): number => {
  * @param fmt 格式化类型 yyyy-MM-dd hh:mm:ss
  * @returns 时间字符串 2022-03-29 17:22:30
  */
-export const format = (date: Date, fmt: string): string => {
+export function format(date: Date, fmt: string): string {
   const o = {
     'M+': date.getMonth() + 1,
     'd+': date.getDate(),
@@ -48,7 +48,7 @@ export const format = (date: Date, fmt: string): string => {
  * @param duration 音视频时长：120
  * @returns 时间字符串：02:00
  */
-export const makeDuration = (duration: number): string => {
+export function makeDuration(duration: number): string {
   const h =
     Math.floor(duration / 3600) < 10
       ? '0' + Math.floor(duration / 3600)
@@ -81,7 +81,7 @@ export const makeDuration = (duration: number): string => {
  * @param date 日期：2022-03-29 09:08:11
  * @returns 时间字符串：1个月前
  */
-export const makeChTime = (date: string): string => {
+export function makeChTime(date: string): string {
   const inDate = new Date() //存放传入时间
   const curDate = new Date() //取得当前时间
   const yearAndTime = date.split(' ') //根据空格组成数组
@@ -155,7 +155,7 @@ export const makeChTime = (date: string): string => {
  * @param value 数字：1001
  * @returns 时间字符串：1千
  */
-export const makeChNumber = (value: number): string => {
+export function makeChNumber(value: number): string {
   const newValue = ['', '', '']
   let fr = 1000
   let num = 3

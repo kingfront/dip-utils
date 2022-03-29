@@ -12,9 +12,9 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param max 最大数字
  * @returns number类型
  */
-var random = function (min, max) {
+function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}
 
 /**
  * 常用日期相关工具函数
@@ -25,38 +25,43 @@ var random = function (min, max) {
  * 注意：此处月、日、时分秒、必须为2位数字，否则报错
  * @returns 时间戳
  */
-var getTimestamp = function (dateStr) {
+function getTimestamp(dateStr) {
     return Date.parse(new Date(dateStr).toString());
-};
-// export const format = (date: Date, fmt: string) => {
-//   const o = {
-//     'M+': date.getMonth() + 1,
-//     'd+': date.getDate(),
-//     'h+': date.getHours(),
-//     'm+': date.getMinutes(),
-//     's+': date.getSeconds(),
-//     'q+': Math.floor((date.getMonth() + 3) / 3),
-//     S: date.getMilliseconds()
-//   }
-//   if (/(y+)/.test(fmt)) {
-//     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
-//   }
-//   for (const k in o) {
-//     if (new RegExp('(' + k + ')').test(fmt)) {
-//       fmt = fmt.replace(
-//         RegExp.$1,
-//         RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length)
-//       )
-//     }
-//   }
-//   return fmt
-// }
+}
+/**
+ * @param date Date类型 new Date()
+ * @param fmt 格式化类型 yyyy-MM-dd hh:mm:ss
+ * @returns 时间字符串 2022-03-29 17:22:30
+ */
+function format(date, fmt) {
+    var o = {
+        'M+': date.getMonth() + 1,
+        'd+': date.getDate(),
+        'h+': date.getHours(),
+        'm+': date.getMinutes(),
+        's+': date.getSeconds(),
+        'q+': Math.floor((date.getMonth() + 3) / 3),
+        S: date.getMilliseconds()
+    };
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+    }
+    for (var k in o) {
+        if (new RegExp('(' + k + ')').test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, 
+            // eslint-disable-next-line
+            // @ts-ignore
+            RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
+        }
+    }
+    return fmt;
+}
 /**
  * 转换音视频时长，把秒数转换为：HH:MM:SS格式
  * @param duration 音视频时长：120
  * @returns 时间字符串：02:00
  */
-var makeDuration = function (duration) {
+function makeDuration(duration) {
     var h = Math.floor(duration / 3600) < 10
         ? '0' + Math.floor(duration / 3600)
         : Math.floor(duration / 3600);
@@ -81,13 +86,13 @@ var makeDuration = function (duration) {
         res += '00';
     }
     return res;
-};
+}
 /**
  * 转换时间字符串为大致时间描述
  * @param date 日期：2022-03-29 09:08:11
  * @returns 时间字符串：1个月前
  */
-var makeChTime = function (date) {
+function makeChTime(date) {
     var inDate = new Date(); //存放传入时间
     var curDate = new Date(); //取得当前时间
     var yearAndTime = date.split(' '); //根据空格组成数组
@@ -161,13 +166,13 @@ var makeChTime = function (date) {
         }
     }
     return str;
-};
+}
 /**
  * 转换数字为 大致数字描述
  * @param value 数字：1001
  * @returns 时间字符串：1千
  */
-var makeChNumber = function (value) {
+function makeChNumber(value) {
     var newValue = ['', '', ''];
     var fr = 1000;
     var num = 3;
@@ -225,9 +230,23 @@ var makeChNumber = function (value) {
         newValue[1] = '';
     }
     return newValue.join('');
-};
+}
 
+/**
+ * 判断是否为xxx
+ */
+/**
+ * 判断是否为数组
+ * @param input 最小数字
+ * @returns boolean
+ */
+function isArray(input) {
+    return input instanceof Array || Object.prototype.toString.call(input) === '[object Array]';
+}
+
+exports.format = format;
 exports.getTimestamp = getTimestamp;
+exports.isArray = isArray;
 exports.makeChNumber = makeChNumber;
 exports.makeChTime = makeChTime;
 exports.makeDuration = makeDuration;

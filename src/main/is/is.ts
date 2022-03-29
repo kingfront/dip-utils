@@ -7,6 +7,6 @@
  * @param input 最小数字
  * @returns boolean
  */
-export const isArray = (input: any): boolean => {
+export function isArray(input: any): boolean {
   return input instanceof Array || Object.prototype.toString.call(input) === '[object Array]'
 }

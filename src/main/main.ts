@@ -9,6 +9,6 @@
  * @param max 最大数字
  * @returns number类型
  */
-export const random = (min: number, max: number): number => {
+export function random(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
