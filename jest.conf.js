@@ -1,4 +1,6 @@
 module.exports = {
   transform: {},
-  extensionsToTreatAsEsm: ['.ts']
+  testEnvironment: 'jsdom',
+  extensionsToTreatAsEsm: ['.ts'],
+  moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts']
 }

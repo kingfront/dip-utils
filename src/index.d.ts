@@ -46,6 +46,32 @@ declare namespace dipUtils {
    * @returns boolean
    */
   export function isArray(input: any): boolean
+  /**
+   * 判断是否为空
+   * @param input 任意值对象
+   * @returns boolean
+   */
+  export function isEmpty(input: any): boolean
+  /**
+   * 判断是否为数字
+   * @param input 任意值对象
+   * @returns boolean
+   */
+  export function isNumber(input: any): boolean
+  /**
+   * 根据key获取浏览器url参数
+   * @param name 参数key
+   * @param name window.location.href ： ?title=你好url&test=true
+   * @returns string | null 参数值
+   */
+  export function getUrlVal(name: string, url?: string): string | null
+  /**
+   * 转换浏览器url参数为json对象
+   * @param name 参数key
+   * @param name window.location.href ： ?title=你好url&test=true
+   * @returns string | null 参数值
+   */
+  export function parseUrlValToJson(url: string): JSON | null
 }
 declare module 'dip-utils' {
   export = dipUtils
