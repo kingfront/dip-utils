@@ -1,9 +1,9 @@
 {
   "name": "dip-utils",
-  "version": "1.0.13",
+  "version": "1.1.0",
   "description": "常用工具函数封装",
-  "author": "whao",
-  "license": "ISC",
+  "author": "kinghao",
+  "license": "MIT",
   "homepage": "",
   "main": "dist/dip-utils.cjs.js",
   "module": "dist/dip-utils.esm.js",
