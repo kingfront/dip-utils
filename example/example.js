@@ -1,2 +1,2 @@
-const { random, slash, getTimestamp } = require('dip-utils')
-console.log(random(1, 2))
+const { random, makeChNumber, isArray } = require('dip-utils')
+console.log(makeChNumber(239999))

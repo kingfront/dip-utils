@@ -1,4 +1,4 @@
-import { makeChNumber } from '../src/'
+import { makeChNumber } from '../../src/index'
 
 describe('转换数字为 大致数字描述', () => {
   it(`makeChNumber(155) -> should return 155`, () => {

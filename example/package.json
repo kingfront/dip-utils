@@ -9,6 +9,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "dip-utils": "^1.0.13"
+    "dip-utils": "^1.0.14"
   }
 }

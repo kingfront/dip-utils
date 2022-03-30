@@ -4,7 +4,7 @@
 
 /**
  * 判断是否为数组
- * @param input 最小数字
+ * @param input 任意值对象
  * @returns boolean
  */
 export function isArray(input: any): boolean {

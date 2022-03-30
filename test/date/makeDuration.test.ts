@@ -1,4 +1,4 @@
-import { makeDuration } from '../src/'
+import { makeDuration } from '../../src/index'
 
 describe('转换音视频时长', () => {
   it(`makeDuration(155) -> should return 02:35`, () => {

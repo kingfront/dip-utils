@@ -1,4 +1,4 @@
-import { format } from '../src/index'
+import { format } from '../../src/index'
 
 describe('日期格式化', () => {
   it('format(new Date(), "yyyyMMddhhmmss") -> should return 1', () => {

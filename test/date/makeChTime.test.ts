@@ -1,4 +1,4 @@
-import { makeChTime, format } from '../src/'
+import { makeChTime, format } from '../../src/index'
 
 describe('转换时间字符串为大致时间描述', () => {
   const date1 = new Date()
