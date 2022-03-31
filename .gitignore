@@ -1,7 +1,4 @@
-/node_modules
-/example/node_modules
-/example/package-lock.json
-/example/yarn.lock
-package-lock.json
+node_modules
 yarn.lock
 pnpm-lock.yaml
+package-lock.json
