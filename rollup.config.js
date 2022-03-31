@@ -17,7 +17,8 @@ export default {
     {
       format: 'umd',
       file: 'dist/dip-utils.umd.js',
-      name: 'dutils'
+      name: 'dutils',
+      minifyInternalExports: true
     }
   ],
   plugins: [typescript({ tsconfig: './tsconfig.json' }), resolve()]

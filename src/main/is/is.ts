@@ -10,6 +10,7 @@
 export function isArray(input: any): boolean {
   return input instanceof Array || Object.prototype.toString.call(input) === '[object Array]'
 }
+
 /**
  * 判断是否为空
  * @param input 任意值对象
@@ -18,6 +19,7 @@ export function isArray(input: any): boolean {
 export function isEmpty(input: any): boolean {
   return typeof input === 'undefined' || input === null || input === ''
 }
+
 /**
  * 判断是否为数字
  * @param input 任意值对象

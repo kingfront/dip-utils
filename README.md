@@ -13,7 +13,7 @@
 
 ## 简介
 
-前端项目开发中，会经常使用一些工具函数，随着项目数量的增多、工具函数的增多，在每个项目里面都维护一个 util.js 会带来不少的麻烦，所以还是维护一个工具函数包吧！
+前端项目开发中，会经常使用一些工具函数，随着项目数量的增多、工具函数的增多，在每个项目里面都维护一个 util.js 会带来不少的麻烦，所以还是维护一个工具函数包，希望大家也一并 commit！
 
 ## 安装使用
 
@@ -132,4 +132,38 @@ console.log(random(1, 10))
    * @returns string | null 参数值
    */
   export function parseUrlValToJson(url: string): JSON | null
+  /**
+   * 存储localStorage
+   * @param name key值
+   * @param content value值
+   */
+  export function setLocal(name: string, content: any): void
+  /**
+   * 获取存储localStorage
+   * @param name key值
+   * @return string
+   */
+  export function getLocal(name: string): string | null
+  /**
+   * 删除localStorage
+   * @param name key值
+   */
+  export function removeLocal(name: string)
+  /**
+   * 存储sessionStorage
+   * @param name key值
+   * @param content value值
+   */
+  export function setSession(name: string, content: any)
+  /**
+   * 获取localStorage
+   * @param name key值
+   * @return string
+   */
+  export function getSession(name: string): string | null
+  /**
+   * 删除localStorage
+   * @param name key值
+   */
+  export function removeSession(name: string)
 ```

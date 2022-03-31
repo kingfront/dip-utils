@@ -16,6 +16,22 @@
     function random(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+    /**
+     * 生成uuid
+     * @returns string 类型 df2367fb-1d9d-4bc5-8bbc-55a1166a2e5d
+     */
+    function uuid() {
+        var s = [];
+        var hexDigits = '0123456789abcdef';
+        for (var i = 0; i < 36; i++) {
+            s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+        }
+        s[14] = '4';
+        s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
+        s[8] = s[13] = s[18] = s[23] = '-';
+        var uuid = s.join('');
+        return uuid;
+    }
 
     /**
      * 常用日期相关工具函数
@@ -303,7 +319,83 @@
         return query;
     }
 
+    /**
+     * 浏览器存储 工具函数
+     */
+    /**
+     * 存储localStorage
+     * @param name key值
+     * @param content value值
+     */
+    function setLocal(name, content) {
+        if (!name)
+            return;
+        if (typeof content !== 'string') {
+            content = JSON.stringify(content);
+        }
+        if (window.localStorage) {
+            window.localStorage.setItem(name, content);
+        }
+    }
+    /**
+     * 获取存储localStorage
+     * @param name key值
+     * @return string
+     */
+    function getLocal(name) {
+        if (!name)
+            return null;
+        if (!window.localStorage)
+            return null;
+        return window.localStorage.getItem(name);
+    }
+    /**
+     * 删除localStorage
+     * @param name key值
+     */
+    function removeLocal(name) {
+        if (!name)
+            return;
+        if (!window.localStorage)
+            return;
+        window.localStorage.removeItem(name);
+    }
+    /**
+     * 存储sessionStorage
+     * @param name key值
+     * @param content value值
+     */
+    function setSession(name, content) {
+        if (!name)
+            return;
+        if (typeof content !== 'string') {
+            content = JSON.stringify(content);
+        }
+        window.sessionStorage.setItem(name, content);
+    }
+    /**
+     * 获取localStorage
+     * @param name key值
+     * @return string
+     */
+    function getSession(name) {
+        if (!name)
+            return null;
+        return window.sessionStorage.getItem(name);
+    }
+    /**
+     * 删除localStorage
+     * @param name key值
+     */
+    function removeSession(name) {
+        if (!name)
+            return;
+        window.sessionStorage.removeItem(name);
+    }
+
     exports.format = format;
+    exports.getLocal = getLocal;
+    exports.getSession = getSession;
     exports.getTimestamp = getTimestamp;
     exports.getUrlVal = getUrlVal;
     exports.isArray = isArray;
@@ -314,6 +406,11 @@
     exports.makeDuration = makeDuration;
     exports.parseUrlValToJson = parseUrlValToJson;
     exports.random = random;
+    exports.removeLocal = removeLocal;
+    exports.removeSession = removeSession;
+    exports.setLocal = setLocal;
+    exports.setSession = setSession;
+    exports.uuid = uuid;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

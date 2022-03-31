@@ -10,6 +10,11 @@ declare namespace dipUtils {
    */
   export function random(min: number, max: number): number
   /**
+   * 生成uuid
+   * @returns string 类型 df2367fb-1d9d-4bc5-8bbc-55a1166a2e5d
+   */
+  export function uuid(): string
+  /**
    * 时间字符串转换为时间戳
    * @param dateStr 字符串格式为 2017-02-10 18:20:30
    * 注意：此处月、日、时分秒、必须为2位数字，否则报错
@@ -72,6 +77,40 @@ declare namespace dipUtils {
    * @returns string | null 参数值
    */
   export function parseUrlValToJson(url: string): JSON | null
+  /**
+   * 存储localStorage
+   * @param name key值
+   * @param content value值
+   */
+  export function setLocal(name: string, content: any): void
+  /**
+   * 获取存储localStorage
+   * @param name key值
+   * @return string
+   */
+  export function getLocal(name: string): string | null
+  /**
+   * 删除localStorage
+   * @param name key值
+   */
+  export function removeLocal(name: string)
+  /**
+   * 存储sessionStorage
+   * @param name key值
+   * @param content value值
+   */
+  export function setSession(name: string, content: any)
+  /**
+   * 获取localStorage
+   * @param name key值
+   * @return string
+   */
+  export function getSession(name: string): string | null
+  /**
+   * 删除localStorage
+   * @param name key值
+   */
+  export function removeSession(name: string)
 }
 declare module 'dip-utils' {
   export = dipUtils
