@@ -4,7 +4,7 @@
   "description": "前端常用工具函数封装",
   "author": "kinghao",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/kingfront/dip-utils",
   "main": "dist/dip-utils.cjs.js",
   "module": "dist/dip-utils.esm.js",
   "browser": "dist/dip-utils.umd.js",
