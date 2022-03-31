@@ -6,7 +6,6 @@
 
     /**
      * 基本常用工具函数
-     * whao 2022-03-28
      */
     /**
      * 生成数字范围内的随机数
@@ -20,7 +19,6 @@
 
     /**
      * 常用日期相关工具函数
-     * whao 2022-03-28
      */
     /**
      * @param dateStr 字符串格式为 2017-02-10 18:20:30
@@ -235,23 +233,86 @@
     }
 
     /**
-     * 判断是否为xxx
+     * 判断xx相关工具函数
      */
     /**
      * 判断是否为数组
-     * @param input 最小数字
+     * @param input 任意值对象
      * @returns boolean
      */
     function isArray(input) {
         return input instanceof Array || Object.prototype.toString.call(input) === '[object Array]';
     }
+    /**
+     * 判断是否为空
+     * @param input 任意值对象
+     * @returns boolean
+     */
+    function isEmpty(input) {
+        return typeof input === 'undefined' || input === null || input === '';
+    }
+    /**
+     * 判断是否为数字
+     * @param input 任意值对象
+     * @returns boolean
+     */
+    function isNumber(input) {
+        return input instanceof Number || Object.prototype.toString.call(input) === '[object Number]';
+    }
+
+    /**
+     * location url相关工具函数
+     */
+    /**
+     * 根据key获取浏览器url参数
+     * @param name 参数key
+     * @param name window.location.href ： ?title=你好url&test=true
+     * @returns string | null 参数值
+     */
+    function getUrlVal(name, url) {
+        url = !url ? window.location.href : url;
+        if (url.indexOf('?') === -1)
+            return null;
+        var search = url[0] === '?' ? url.substr(1) : url.substring(url.lastIndexOf('?') + 1);
+        if (search === '')
+            return null;
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+        var r = search.match(reg);
+        if (r != null)
+            return decodeURIComponent(r[2]);
+        return null;
+    }
+    /**
+     * 转换浏览器url参数为json对象
+     * @param url window.location.href ： ?title=你好url&test=true
+     * @returns JSON | null 参数值
+     */
+    function parseUrlValToJson(url) {
+        url = !url ? window.location.href : url;
+        var query = JSON.parse('{}');
+        if (url.indexOf('?') === -1)
+            return query;
+        var search = url[0] === '?' ? url.substr(1) : url.substring(url.lastIndexOf('?') + 1);
+        if (search === '')
+            return query;
+        search = search.split('&');
+        for (var i = 0; i < search.length; i++) {
+            var pair = search[i].split('=');
+            query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+        }
+        return query;
+    }
 
     exports.format = format;
     exports.getTimestamp = getTimestamp;
+    exports.getUrlVal = getUrlVal;
     exports.isArray = isArray;
+    exports.isEmpty = isEmpty;
+    exports.isNumber = isNumber;
     exports.makeChNumber = makeChNumber;
     exports.makeChTime = makeChTime;
     exports.makeDuration = makeDuration;
+    exports.parseUrlValToJson = parseUrlValToJson;
     exports.random = random;
 
     Object.defineProperty(exports, '__esModule', { value: true });
